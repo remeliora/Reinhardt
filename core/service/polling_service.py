@@ -1,10 +1,11 @@
 import asyncio
 import logging
 from typing import Dict
-from infrastructure.db.repositories import DeviceRepository
-from infrastructure.db.models import Device
+
 from core.service.connection_checker import check_device_connection
 from core.service.device_poller import DevicePoller
+from infrastructure.db.models import Device
+from infrastructure.db.repositories import DeviceRepository
 
 logger = logging.getLogger("polling_service")
 
@@ -115,7 +116,6 @@ class PollingService:
                     if device.id in self._device_pollers:
                         await self._device_pollers[device.id].stop()
                         del self._device_pollers[device.id]
-                    # break
                 await asyncio.sleep(retry_delay)
 
         except Exception as e:
