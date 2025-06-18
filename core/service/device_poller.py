@@ -3,7 +3,7 @@ import logging
 import re
 from contextlib import suppress
 
-from infrastructure.db.repositories import ParameterRepository, ThresholdRepository
+from infrastructure.db.repositories.repositories import ParameterRepository, ThresholdRepository
 
 logger = logging.getLogger("device_poller")
 

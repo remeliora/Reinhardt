@@ -4,8 +4,8 @@ from typing import Dict
 
 from core.service.connection_checker import check_device_connection
 from core.service.device_poller import DevicePoller
-from infrastructure.db.models import Device
-from infrastructure.db.repositories import DeviceRepository
+from infrastructure.db.models.models import Device
+from infrastructure.db.repositories.repositories import DeviceRepository
 
 logger = logging.getLogger("polling_service")
 

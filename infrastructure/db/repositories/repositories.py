@@ -1,5 +1,5 @@
 from sqlalchemy.orm import joinedload
-from infrastructure.db.models import Device, DeviceType, Parameter, Threshold
+from infrastructure.db.models.models import Device, DeviceType, Parameter, Threshold
 
 
 class DeviceTypeRepository:

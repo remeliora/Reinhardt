@@ -1,6 +1,7 @@
 import sys
 import asyncio
 import logging
+from config import settings
 from infrastructure.db.postgres import PostgresDB
 from core.service.polling_service import PollingService
 
@@ -18,7 +19,11 @@ logging.basicConfig(
 async def main():
     try:
         # Инициализация базы данных
-        db = PostgresDB("postgresql://postgres:4803@localhost:5435/reinhardt")
+        db = PostgresDB(
+            settings.DATABASE_URL,
+            pool_size=settings.DB_POOL_SIZE,
+            max_overflow=settings.DB_MAX_OVERFLOW,
+        )
         session = db.get_session()
         logger = logging.getLogger("main")
 
